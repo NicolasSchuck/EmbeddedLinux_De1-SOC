@@ -1,3 +1,6 @@
 [submodule "UPM-ES-cyclonevbsp"]
 	path = UPM-ES-cyclonevbsp
 	url = ../../mruizglz/UPM-ES-cyclonevbsp.git
+[submodule "SoC-FPGA-Design-Guide"]
+	path = SoC-FPGA-Design-Guide
+	url = https://github.com/sahandKashani/SoC-FPGA-Design-Guide.git
