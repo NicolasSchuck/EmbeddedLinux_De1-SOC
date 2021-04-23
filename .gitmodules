@@ -4,3 +4,6 @@
 [submodule "SoC-FPGA-Design-Guide"]
 	path = SoC-FPGA-Design-Guide
 	url = https://github.com/sahandKashani/SoC-FPGA-Design-Guide.git
+[submodule "u-boot"]
+	path = u-boot
+	url = ../../u-boot/u-boot.git
