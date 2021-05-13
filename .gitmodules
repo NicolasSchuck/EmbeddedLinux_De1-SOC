@@ -7,3 +7,6 @@
 [submodule "u-boot"]
 	path = u-boot
 	url = ../../u-boot/u-boot.git
+[submodule "EmbeddedLinux_De1-SOC.wiki"]
+	path = EmbeddedLinux_De1-SOC.wiki
+	url = ../EmbeddedLinux_De1-SOC.wiki.git
