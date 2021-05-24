@@ -1,8 +1,10 @@
 #!/bin/bash
 echo "--build_linux_kernel.sh--"
+echo "config compiler"
+export PATH=~/gcc-arm-10.2-2020.11-x86_64-arm-none-linux-gnueabihf/bin:$PATH
 cd ..
-export set LINUX_TOP=`pwd`/linux-socfga.a9
-rm -rf linux-kernel && mkdir linux-bin
+export set LINUX_TOP=`pwd`/linux-socfpga.a9
+rm -rf linux-bin && mkdir linux-bin
 echo "removed and reinitialized folder..."
 export set LINUX_BIN=`pwd`/linux-bin
 mkdir -p $LINUX_BIN/a9
@@ -19,7 +21,7 @@ sed -i 's/<0x800000 0x7800000>;/<0x800000 0x3800000>;/g' arch/arm/boot/dts/socfp
 
 echo "make kernel"
 make socfpga_defconfig
-make -j 48 zImage Image dtbs modulesec
+make -j 48 zImage Image dtbs modules
 make -j 48 modules_install INSTALL_MOD_PATH=modules_install
 rm -rf modules_install/lib/modules/*/build
 rm -rf modules_install/lib/modules/*/source
@@ -38,7 +40,7 @@ cd ~/EmbeddedLinux_De1-SOC/
 export TOP_FOLDER=`pwd`
 
 echo "reinit software folder"
-rm -rf software
+rm -rf Quartus/software
 mkdir -p Quartus/software/bootloader
 
 echo "copy u-boot"
@@ -48,9 +50,9 @@ echo "run BSP"
 ~/intelFPGA/20.1/embedded/embedded_command_shell.sh \
 bsp-create-settings \
    --type spl \
-   --bsp-dir software/bootloader \
-   --preloader-settings-dir "hps_isw_handoff/soc_system_hps_0" \
-   --settings software/bootloader/settings.bsp
+   --bsp-dir $TOP_FOLDER/Quartus/software/bootloader \
+   --preloader-settings-dir "$TOP_FOLDER/Quartus/hps_isw_handoff/soc_system_hps_0" \
+   --settings $TOP_FOLDER/Quartus/software/bootloader/settings.bsp
 
 echo "run qts-Filter"
 cd $TOP_FOLDER/Quartus/software/bootloader/u-boot-socfpga
