@@ -4,9 +4,12 @@
 [submodule "SoC-FPGA-Design-Guide"]
 	path = SoC-FPGA-Design-Guide
 	url = https://github.com/sahandKashani/SoC-FPGA-Design-Guide.git
-[submodule "u-boot"]
-	path = u-boot
-	url = ../../u-boot/u-boot.git
 [submodule "EmbeddedLinux_De1-SOC.wiki"]
 	path = EmbeddedLinux_De1-SOC.wiki
 	url = ../EmbeddedLinux_De1-SOC.wiki.git
+[submodule "linux-socfpga.a9"]
+	path = linux-socfpga.a9
+	url = ../../altera-opensource/linux-socfpga.git
+[submodule "u-boot-socfpga"]
+	path = u-boot-socfpga
+	url = ../../altera-opensource/u-boot-socfpga.git
