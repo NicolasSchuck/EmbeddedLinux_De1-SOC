@@ -13,3 +13,9 @@
 [submodule "u-boot-socfpga"]
 	path = u-boot-socfpga
 	url = ../../altera-opensource/u-boot-socfpga.git
+[submodule "yocto/poky"]
+	path = yocto/poky
+	url = https://git.yoctoproject.org/cgit/cgit.cgi/poky/
+[submodule "yocto/meta-intel-fpga"]
+	path = yocto/meta-intel-fpga
+	url = https://git.yoctoproject.org/cgit/cgit.cgi/meta-intel-fpga/
