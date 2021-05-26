@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>spl</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>May 24, 2021 10:06:29 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1621886789333</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>May 26, 2021 8:14:27 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1622009667575</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/nicolas/EmbeddedLinux_De1-SOC/Quartus/software/bootloader</BspGeneratedLocation>
         <BspSettingsFile>/home/nicolas/EmbeddedLinux_De1-SOC/Quartus/software/bootloader/settings.bsp</BspSettingsFile>
         <HpsSettingsPath>/home/nicolas/EmbeddedLinux_De1-SOC/Quartus/hps_isw_handoff/soc_system_hps_0</HpsSettingsPath>
