@@ -39,25 +39,25 @@ const u8 sys_mgr_init_table[] = {
 	3, /* FLASHIO9 */
 	3, /* FLASHIO10 */
 	3, /* FLASHIO11 */
-	0, /* GENERALIO0 */
-	1, /* GENERALIO1 */
-	1, /* GENERALIO2 */
-	1, /* GENERALIO3 */
-	1, /* GENERALIO4 */
-	0, /* GENERALIO5 */
-	0, /* GENERALIO6 */
-	1, /* GENERALIO7 */
-	1, /* GENERALIO8 */
-	0, /* GENERALIO9 */
-	0, /* GENERALIO10 */
-	0, /* GENERALIO11 */
-	0, /* GENERALIO12 */
-	0, /* GENERALIO13 */
-	0, /* GENERALIO14 */
-	1, /* GENERALIO15 */
-	1, /* GENERALIO16 */
-	1, /* GENERALIO17 */
-	1, /* GENERALIO18 */
+	3, /* GENERALIO0 */
+	3, /* GENERALIO1 */
+	3, /* GENERALIO2 */
+	3, /* GENERALIO3 */
+	3, /* GENERALIO4 */
+	3, /* GENERALIO5 */
+	3, /* GENERALIO6 */
+	3, /* GENERALIO7 */
+	3, /* GENERALIO8 */
+	3, /* GENERALIO9 */
+	3, /* GENERALIO10 */
+	3, /* GENERALIO11 */
+	3, /* GENERALIO12 */
+	2, /* GENERALIO13 */
+	2, /* GENERALIO14 */
+	3, /* GENERALIO15 */
+	3, /* GENERALIO16 */
+	2, /* GENERALIO17 */
+	2, /* GENERALIO18 */
 	0, /* GENERALIO19 */
 	0, /* GENERALIO20 */
 	0, /* GENERALIO21 */

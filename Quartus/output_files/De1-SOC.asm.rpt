@@ -1,5 +1,5 @@
 Assembler report for De1-SOC
-Fri Apr 16 21:28:10 2021
+Fri Jun 11 14:19:47 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -39,7 +39,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Apr 16 21:28:10 2021 ;
+; Assembler Status      ; Successful - Fri Jun 11 14:19:47 2021 ;
 ; Revision Name         ; De1-SOC                               ;
 ; Top-level Entity Name ; soc_system_top                        ;
 ; Family                ; Cyclone V                             ;
@@ -69,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------+
 ; File Name                                                                      ;
 +--------------------------------------------------------------------------------+
-; /home/nicolas/Dokumente/EmbeddedLinux_De1-SOC/Quartus/output_files/De1-SOC.sof ;
+; /home/nicolas/Documents/EmbeddedLinux_De1-SOC/Quartus/output_files/De1-SOC.sof ;
 +--------------------------------------------------------------------------------+
 
 
@@ -78,8 +78,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+----------------------+
 ; Option         ; Setting              ;
 +----------------+----------------------+
-; JTAG usercode  ; 0x00C799FD           ;
-; Checksum       ; 0x00C799FD           ;
+; JTAG usercode  ; 0x00C791F2           ;
+; Checksum       ; 0x00C791F2           ;
 +----------------+----------------------+
 
 
@@ -89,15 +89,17 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Apr 16 21:27:31 2021
+    Info: Processing started: Fri Jun 11 14:19:41 2021
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off De1-SOC -c De1-SOC
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
-Info (11878): Hard Processor Subsystem configuration has not changed and a Preloader software update is not required
-Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 547 megabytes
-    Info: Processing ended: Fri Apr 16 21:28:10 2021
-    Info: Elapsed time: 00:00:39
-    Info: Total CPU time (on all processors): 00:00:39
+Warning (11713): The configuration of the Hard Processor Subsystem (HPS) within this design has changed.
+The Preloader software that initializes the HPS requires an update.
+Using hps_isw_handoff/soc_system_hps_0/, run the Preloader Support Package Generator to update your Preloader software
+Info: Quartus Prime Assembler was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 551 megabytes
+    Info: Processing ended: Fri Jun 11 14:19:47 2021
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:06
 
 
