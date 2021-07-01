@@ -1,0 +1,27 @@
+//wichtig!!!! python 3 script verwenden neues ghrd
+
+//espanol script
+sudo python3 ./make_sdimage_p3.py \
+-f \
+-P preloader-mkpimage.bin,u-boot.img,num=3,format=raw,size=10M,type=A2 \
+-P rootfs/*,num=2,format=ext3,size=1200M \
+-P zImage,u-boot.scr,soc_system.rbf,soc_system.dtb,num=1,format=vfat,size=300M \
+-s 1700M \
+-n de1soc-sd-card.img
+
+//nico script
+sudo python3 ./make_sdimage_p3.py \
+-f \
+-P preloader-mkpimage.bin,u-boot.img,num=3,format=raw,size=10M,type=A2 \
+-P rootfs/*,num=2,format=ext3,size=1200M \
+-P zImage,u-boot.scr,DE1_SoC.rbf,DE1_SoC.dtb,num=1,format=vfat,size=300M \
+-s 1700M \
+-n de1soc-sd-card.img
+
+./software/spl_bsp/uboot-socfpga/tools/mkimage -A arm -O linux -T script -C none -a 0 -e 0 -n "My script" -d boot.script u-boot.scr
+
+mkdir rootfs
+cd rootfs
+sudo tar -xvf ../rootfs.tar
+
+
