@@ -3,5 +3,7 @@ Software/*
 Documentation/*
 rootfs/*
 linux-bin/*
-sdcard/*
-
+sdcard/rootfs/*
+sdcard/de1soc-sd-card.img
+sdcard_buildroot_18/rootfs/*
+sdcard_buildroot_18/de1soc-sd-card.img
