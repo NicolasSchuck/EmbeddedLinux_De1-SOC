@@ -5,9 +5,11 @@
   <columns>
    <connections preferredWidth="127" />
    <irq preferredWidth="47" />
+   <export preferredWidth="316" />
   </columns>
  </systemtable>
- <library expandedCategories="Project,Library" />
- <window width="1635" height="800" x="432" y="520" />
+ <library
+   expandedCategories="Library/Processors and Peripherals,Library/Memory Interfaces and Controllers,Library/Basic Functions,Library,Project,Library/Interface Protocols" />
+ <window width="2303" height="800" x="432" y="520" />
  <generation block_symbol_file="0" synthesis="VHDL" />
 </preferences>
