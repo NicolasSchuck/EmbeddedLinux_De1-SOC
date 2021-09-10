@@ -9,6 +9,27 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element blinker_0
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+   }
+   element blinker_0.avalon_slave_0
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "262144";
+         type = "String";
+      }
+   }
    element clk_0
    {
       datum _sortIndex
@@ -94,6 +115,11 @@
  <parameter name="timeStamp" value="0" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
+ <interface
+   name="blinker_external_connection"
+   internal="blinker_0.conduit_end"
+   type="conduit"
+   dir="end" />
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
  <interface
    name="displays_ctrl_external_connection"
@@ -108,6 +134,7 @@
    dir="start" />
  <interface name="hps_0_io" internal="hps_0.hps_io" type="conduit" dir="end" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
+ <module name="blinker_0" kind="blinker" version="1.0" enabled="1" />
  <module name="clk_0" kind="clock_source" version="18.1" enabled="1">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -701,6 +728,15 @@
    kind="avalon"
    version="18.1"
    start="hps_0.h2f_lw_axi_master"
+   end="blinker_0.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00040000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="hps_0.h2f_lw_axi_master"
    end="sysid_qsys_0.control_slave">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0008" />
@@ -718,11 +754,19 @@
  <connection kind="clock" version="18.1" start="clk_0.clk" end="sysid_qsys_0.clk" />
  <connection kind="clock" version="18.1" start="clk_0.clk" end="jtag_uart_0.clk" />
  <connection kind="clock" version="18.1" start="clk_0.clk" end="displays_ctrl.clk" />
+ <connection kind="clock" version="18.1" start="clk_0.clk" end="blinker_0.clock" />
  <connection
    kind="clock"
    version="18.1"
    start="clk_0.clk"
    end="hps_0.h2f_lw_axi_clock" />
+ <connection
+   kind="interrupt"
+   version="18.1"
+   start="hps_0.f2h_irq0"
+   end="blinker_0.interrupt_sender">
+  <parameter name="irqNumber" value="1" />
+ </connection>
  <connection
    kind="interrupt"
    version="18.1"
@@ -745,6 +789,11 @@
    version="18.1"
    start="clk_0.clk_reset"
    end="displays_ctrl.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_0.clk_reset"
+   end="blinker_0.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

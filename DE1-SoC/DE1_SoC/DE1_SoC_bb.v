@@ -1,6 +1,10 @@
 
 module DE1_SoC (
+	blinker_external_connection_switches,
+	blinker_external_connection_buttons,
+	blinker_external_connection_leds,
 	clk_clk,
+	displays_ctrl_external_connection_export,
 	hps_0_ddr_mem_a,
 	hps_0_ddr_mem_ba,
 	hps_0_ddr_mem_ck,
@@ -73,10 +77,13 @@ module DE1_SoC (
 	hps_0_io_hps_io_gpio_inst_GPIO53,
 	hps_0_io_hps_io_gpio_inst_GPIO54,
 	hps_0_io_hps_io_gpio_inst_GPIO61,
-	reset_reset_n,
-	displays_ctrl_external_connection_export);	
+	reset_reset_n);	
 
+	input	[7:0]	blinker_external_connection_switches;
+	input	[3:0]	blinker_external_connection_buttons;
+	output	[7:0]	blinker_external_connection_leds;
 	input		clk_clk;
+	output	[5:0]	displays_ctrl_external_connection_export;
 	output	[14:0]	hps_0_ddr_mem_a;
 	output	[2:0]	hps_0_ddr_mem_ba;
 	output		hps_0_ddr_mem_ck;
@@ -150,5 +157,4 @@ module DE1_SoC (
 	inout		hps_0_io_hps_io_gpio_inst_GPIO54;
 	inout		hps_0_io_hps_io_gpio_inst_GPIO61;
 	input		reset_reset_n;
-	output	[5:0]	displays_ctrl_external_connection_export;
 endmodule

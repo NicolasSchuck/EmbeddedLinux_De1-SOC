@@ -159,6 +159,9 @@ signal displays_ena_n:			std_logic_vector(5 downto 0);
 
     component DE1_SoC is
         port(
+				blinker_external_connection_switches     : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- switches
+				blinker_external_connection_buttons      : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- buttons
+				blinker_external_connection_leds         : out   std_logic_vector(7 downto 0);
 				displays_ctrl_external_connection_export : out std_logic_vector(5 downto 0);
 				clk_clk                               : in    std_logic                     := 'X';
 				hps_0_h2f_reset_reset_n               : out   std_logic;                                        -- reset_n
@@ -240,6 +243,9 @@ signal displays_ena_n:			std_logic_vector(5 downto 0);
 begin
     DE1_SoC_inst : component DE1_SoC
         port map(
+				blinker_external_connection_buttons   => KEY_N,
+				blinker_external_connection_leds      => LEDR(7 downto 0),
+				blinker_external_connection_switches  => SW(7 downto 0),
 				displays_ctrl_external_connection_export => displays_ena_n,
             clk_clk                               => CLOCK_50,
 				hps_0_h2f_reset_reset_n					  => hps_fpga_reset_n,
