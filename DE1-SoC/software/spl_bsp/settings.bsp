@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>spl</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Jun 22, 2021 7:17:14 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1624382234190</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Sep 10, 2021 9:40:56 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1631302856552</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>./</BspGeneratedLocation>
-        <BspSettingsFile>/home/nicolas/Documents/DE1-SoC/software/spl_bsp/settings.bsp</BspSettingsFile>
+        <BspSettingsFile>/home/nicolas/Documents/EmbeddedLinux_De1-SOC/DE1-SoC/software/spl_bsp/settings.bsp</BspSettingsFile>
         <HpsSettingsPath>../../hps_isw_handoff/DE1_SoC_hps_0</HpsSettingsPath>
         <JdiFile>default</JdiFile>
         <Cpu xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

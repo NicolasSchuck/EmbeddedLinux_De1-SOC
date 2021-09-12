@@ -1,9 +1,13 @@
 Info: Starting: Create HDL design files for synthesis
-Info: qsys-generate /home/nicolas/Documents/DE1-SoC/DE1_SoC.qsys --synthesis=VHDL --output-directory=/home/nicolas/Documents/DE1-SoC/DE1_SoC/synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Info: qsys-generate /home/nicolas/Documents/EmbeddedLinux_De1-SOC/DE1-SoC/DE1_SoC.qsys --synthesis=VHDL --output-directory=/home/nicolas/Documents/EmbeddedLinux_De1-SOC/DE1-SoC/DE1_SoC/synthesis --family="Cyclone V" --part=5CSEMA5F31C6
 Progress: Loading DE1-SoC/DE1_SoC.qsys
 Progress: Reading input file
+Progress: Adding blinker_0 [blinker 1.0]
+Progress: Parameterizing module blinker_0
 Progress: Adding clk_0 [clock_source 18.1]
 Progress: Parameterizing module clk_0
+Progress: Adding displays_ctrl [altera_avalon_pio 18.1]
+Progress: Parameterizing module displays_ctrl
 Progress: Adding hps_0 [altera_hps 18.1]
 Progress: Parameterizing module hps_0
 Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 18.1]
@@ -24,17 +28,24 @@ Warning: hps_0.f2h_irq0: Cannot connect clock for irq_mapper.sender
 Warning: hps_0.f2h_irq0: Cannot connect reset for irq_mapper.sender
 Warning: hps_0.f2h_irq1: Cannot connect clock for irq_mapper_001.sender
 Warning: hps_0.f2h_irq1: Cannot connect reset for irq_mapper_001.sender
+Info: blinker_0: "DE1_SoC" instantiated blinker "blinker_0"
+Info: displays_ctrl: Starting RTL generation for module 'DE1_SoC_displays_ctrl'
+Info: displays_ctrl:   Generation command is [exec /home/nicolas/intelFPGA_lite/18.1/quartus/linux64/perl/bin/perl -I /home/nicolas/intelFPGA_lite/18.1/quartus/linux64/perl/lib -I /home/nicolas/intelFPGA_lite/18.1/quartus/sopc_builder/bin/europa -I /home/nicolas/intelFPGA_lite/18.1/quartus/sopc_builder/bin/perl_lib -I /home/nicolas/intelFPGA_lite/18.1/quartus/sopc_builder/bin -I /home/nicolas/intelFPGA_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nicolas/intelFPGA_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/nicolas/intelFPGA_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE1_SoC_displays_ctrl --dir=/tmp/alt8879_2669196085911547186.dir/0003_displays_ctrl_gen/ --quartus_dir=/home/nicolas/intelFPGA_lite/18.1/quartus --verilog --config=/tmp/alt8879_2669196085911547186.dir/0003_displays_ctrl_gen//DE1_SoC_displays_ctrl_component_configuration.pl  --do_build_sim=0  ]
+Info: displays_ctrl: Done RTL generation for module 'DE1_SoC_displays_ctrl'
+Info: displays_ctrl: "DE1_SoC" instantiated altera_avalon_pio "displays_ctrl"
 Info: hps_0: "Running  for module: hps_0"
 Info: hps_0: HPS Main PLL counter settings: n = 0  m = 63
 Info: hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
 Info: hps_0: "DE1_SoC" instantiated altera_hps "hps_0"
 Info: jtag_uart_0: Starting RTL generation for module 'DE1_SoC_jtag_uart_0'
-Info: jtag_uart_0:   Generation command is [exec /home/nicolas/intelFPGA_lite/18.1/quartus/linux64/perl/bin/perl -I /home/nicolas/intelFPGA_lite/18.1/quartus/linux64/perl/lib -I /home/nicolas/intelFPGA_lite/18.1/quartus/sopc_builder/bin/europa -I /home/nicolas/intelFPGA_lite/18.1/quartus/sopc_builder/bin/perl_lib -I /home/nicolas/intelFPGA_lite/18.1/quartus/sopc_builder/bin -I /home/nicolas/intelFPGA_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nicolas/intelFPGA_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/nicolas/intelFPGA_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=DE1_SoC_jtag_uart_0 --dir=/tmp/alt8800_6603738270218333513.dir/0002_jtag_uart_0_gen/ --quartus_dir=/home/nicolas/intelFPGA_lite/18.1/quartus --verilog --config=/tmp/alt8800_6603738270218333513.dir/0002_jtag_uart_0_gen//DE1_SoC_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart_0:   Generation command is [exec /home/nicolas/intelFPGA_lite/18.1/quartus/linux64/perl/bin/perl -I /home/nicolas/intelFPGA_lite/18.1/quartus/linux64/perl/lib -I /home/nicolas/intelFPGA_lite/18.1/quartus/sopc_builder/bin/europa -I /home/nicolas/intelFPGA_lite/18.1/quartus/sopc_builder/bin/perl_lib -I /home/nicolas/intelFPGA_lite/18.1/quartus/sopc_builder/bin -I /home/nicolas/intelFPGA_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nicolas/intelFPGA_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/nicolas/intelFPGA_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=DE1_SoC_jtag_uart_0 --dir=/tmp/alt8879_2669196085911547186.dir/0004_jtag_uart_0_gen/ --quartus_dir=/home/nicolas/intelFPGA_lite/18.1/quartus --verilog --config=/tmp/alt8879_2669196085911547186.dir/0004_jtag_uart_0_gen//DE1_SoC_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
 Info: jtag_uart_0: Done RTL generation for module 'DE1_SoC_jtag_uart_0'
 Info: jtag_uart_0: "DE1_SoC" instantiated altera_avalon_jtag_uart "jtag_uart_0"
 Info: sysid_qsys_0: "DE1_SoC" instantiated altera_avalon_sysid_qsys "sysid_qsys_0"
 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
 Info: mm_interconnect_0: "DE1_SoC" instantiated altera_mm_interconnect "mm_interconnect_0"
 Info: irq_mapper: "DE1_SoC" instantiated altera_irq_mapper "irq_mapper"
 Info: irq_mapper_001: "DE1_SoC" instantiated altera_irq_mapper "irq_mapper_001"
@@ -47,19 +58,25 @@ Info: jtag_uart_0_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated alte
 Info: jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo"
 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
 Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
 Info: hps_0_h2f_lw_axi_master_wr_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "hps_0_h2f_lw_axi_master_wr_limiter"
-Info: Reusing file /home/nicolas/Documents/DE1-SoC/DE1_SoC/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: Reusing file /home/nicolas/Documents/EmbeddedLinux_De1-SOC/DE1-SoC/DE1_SoC/synthesis/submodules/altera_avalon_sc_fifo.v
 Info: jtag_uart_0_avalon_jtag_slave_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "jtag_uart_0_avalon_jtag_slave_burst_adapter"
-Info: Reusing file /home/nicolas/Documents/DE1-SoC/DE1_SoC/synthesis/submodules/altera_merlin_address_alignment.sv
-Info: Reusing file /home/nicolas/Documents/DE1-SoC/DE1_SoC/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: Reusing file /home/nicolas/Documents/EmbeddedLinux_De1-SOC/DE1-SoC/DE1_SoC/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file /home/nicolas/Documents/EmbeddedLinux_De1-SOC/DE1-SoC/DE1_SoC/synthesis/submodules/altera_avalon_st_pipeline_base.v
 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
-Info: Reusing file /home/nicolas/Documents/DE1-SoC/DE1_SoC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: Reusing file /home/nicolas/Documents/EmbeddedLinux_De1-SOC/DE1-SoC/DE1_SoC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: blinker_0_avalon_slave_0_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "blinker_0_avalon_slave_0_rsp_width_adapter"
+Info: Reusing file /home/nicolas/Documents/EmbeddedLinux_De1-SOC/DE1-SoC/DE1_SoC/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file /home/nicolas/Documents/EmbeddedLinux_De1-SOC/DE1-SoC/DE1_SoC/synthesis/submodules/altera_merlin_burst_uncompressor.sv
 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_001: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_001"
 Info: border: "hps_io" instantiated altera_interface_generator "border"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
-Info: DE1_SoC: Done "DE1_SoC" with 25 modules, 82 files
+Info: error_adapter_0: "avalon_st_adapter_001" instantiated error_adapter "error_adapter_0"
+Info: DE1_SoC: Done "DE1_SoC" with 31 modules, 88 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis
