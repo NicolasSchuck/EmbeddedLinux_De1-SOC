@@ -6,9 +6,10 @@
    <connections preferredWidth="127" />
    <irq preferredWidth="47" />
    <export preferredWidth="316" />
+   <description preferredWidth="353" />
   </columns>
  </systemtable>
  <library expandedCategories="Library,Project" />
- <window width="2303" height="800" x="126" y="570" />
+ <window width="2303" height="1047" x="126" y="570" />
  <generation block_symbol_file="0" synthesis="VHDL" />
 </preferences>

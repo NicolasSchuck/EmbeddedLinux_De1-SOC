@@ -1,5 +1,5 @@
 C_SRC := blinker_devmem_test.c
-CFLAGS := -g -O0 -Werror -Wall -I${SOCEDS_DEST_ROOT}/ip/altera/hps/altera_hps/hwlib/include a-I${SOCEDS_DEST_ROOT}/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av -D soc_cv_av
+CFLAGS := -g -O0 -Werror -Wall -I${SOCEDS_DEST_ROOT}/ip/altera/hps/altera_hps/hwlib/include -I${SOCEDS_DEST_ROOT}/ip/altera/hps/altera_hps/hwlib/include/soc_cv_av -D soc_cv_av
 
 # using Buildroot toolchain
 PATH=$PATH:/home/nicolas/Documents/buildroot/output/host/usr/bin

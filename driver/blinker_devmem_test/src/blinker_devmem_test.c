@@ -9,9 +9,9 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <string.h>
-#include <hps.h>
-#include <hps_0.h>
-#include <blinker_devmem_test.h>
+#include "hps.h"
+#include "hps_0.h"
+#include "blinker_devmem_test.h"
 
 // command line parameters identification
 void *command_write_config 	= NULL;
@@ -87,9 +87,7 @@ int main (int argc, char **argv)
 /*** functions ***/
 
 /* validate_soc_system */
-void 
-	validate_soc_system
-		(void)
+void validate_soc_system (void)
 {
 	const char *dirname;
 	DIR *ds;
@@ -136,7 +134,7 @@ void do_read_state (void *blinker_driver_map)
 
 	unsigned char dato = *blinker_state_reg;
 	printf("configuration = %u\n", dato & 0x0f);
-	printf("speed = %u\n", (dato & 0xf0)>>4);
+	printf("speed = %u\n", ((dato & 0xf0)>>4));
 }
 
 /* do_help */

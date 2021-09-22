@@ -1,0 +1,1 @@
+socfpga -1 fpga -1 =socfpga /home/socfpga /bin/sh - Socfpga user
