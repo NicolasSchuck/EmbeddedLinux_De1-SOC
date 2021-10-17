@@ -14,8 +14,10 @@
 #include <blinker_devmem_test.h>
 
 // command line parameters identification
+void *command_write_led     = NULL;
 void *command_write_config 	= NULL;
 void *command_read_state 	= NULL;
+void *command_read_led      = NULL;
 void *command_help			= NULL;
 
 // parameter value when applicable
@@ -24,8 +26,10 @@ unsigned char param_value;
 // funciton prototypes
 void validate_soc_system(void);
 void parse_cmdline(int argc, char ** argv);
+void do_write_led(void *blinker_driver_map);
 void do_write_config(void *blinker_driver_map);
 void do_read_state(void *blinker_driver_map);
+void do_read_led(void *blinker_driver_map);
 void do_help(void);
 
 //main
@@ -65,8 +69,10 @@ int main (int argc, char **argv)
 	}
 	
 	//perform the operation selected by the command line arguments
+	if(command_write_led    != NULL) { do_write_led(blinker_map); }
 	if(command_write_config	!= NULL) { do_write_config(blinker_map); }
 	if(command_read_state 	!= NULL) { do_read_state(blinker_map); }
+	if(command_read_led     != NULL) { do_read_led(blinker_map); }
 	if(command_help 		!= NULL) { do_help(); }
 	
 	//unmap the blinker and close the /dev/mem file descriptor
@@ -119,6 +125,14 @@ void
 	}
 }
 
+/* do_write_speed */
+void do_write_led (void *blinker_driver_map)
+{
+    volatile unsigned char *blinker_led_reg = blinker_driver_map + BLINKER_REG_LEDS_OFFSET;
+
+    *blinker_led_reg = param_value;
+}
+
 /* do_write_config */
 void do_write_config (void *blinker_driver_map)
 {
@@ -139,6 +153,15 @@ void do_read_state (void *blinker_driver_map)
 	printf("speed = %u\n", (dato & 0xf0)>>4);
 }
 
+/* do_read_led */
+void do_read_led (void *blinker_driver_map)
+{
+    volatile unsigned char *blinker_led_reg = blinker_driver_map + BLINKER_REG_LEDS_OFFSET;
+
+    unsigned char dato = *blinker_led_reg;
+    printf("leds = %u\n", dato & 0xff);
+}
+
 /* do_help */
 void do_help(void)
 {
@@ -155,6 +178,8 @@ void parse_cmdline(int argc, char **argv)
 
 	static struct option long_options[] =
 	{
+	    { "write_led", required_argument, NULL, 'd' },
+	    { "read_led", no_argument, NULL, 'l' },
 		{ "write_config", required_argument, NULL, 'c' },
 		{ "read_state", no_argument, NULL, 's' },
 		{ "help", no_argument, NULL, 'h' },
@@ -163,7 +188,7 @@ void parse_cmdline(int argc, char **argv)
 	//parse the command line arguments
 	while(1)
 	{
-		command = getopt_long( argc, argv, "c:sh", long_options, &opt_index);
+		command = getopt_long( argc, argv, "dlc:sh", long_options, &opt_index);
 		
 		if(command == -1) { break; }
 		
@@ -175,11 +200,24 @@ void parse_cmdline(int argc, char **argv)
 				error(1, 0, "ERROR: wrong command line options.");
 				break;
 			}
+
+			case 'd':
+			{
+			    command_write_led = &command_write_led;
+			    param_value = atoi(optarg);
+			    break;
+			}
+
+			case 'l':
+			{
+			    command_read_led = &command_read_led;
+			    break;
+			}
 				
 			case 'c':
 			{
 				command_write_config = &command_write_config;
-				param_value = atoi(optarg);;
+				param_value = atoi(optarg);
 				break;
 			}
 				
@@ -215,9 +253,11 @@ void parse_cmdline(int argc, char **argv)
 	}
 	
 	//verify that the user only request one action to perform
+	if(command_write_led    != NULL) { action_count++; }
 	if(command_write_config != NULL) { action_count++; }
-	if(command_read_state != NULL) { action_count++; }
-	if(command_help != NULL) { action_count++; }
+	if(command_read_state   != NULL) { action_count++; }
+	if(command_read_led     != NULL) { action_count++; }
+	if(command_help         != NULL) { action_count++; }
 	
 	if(action_count == 0)
 	{

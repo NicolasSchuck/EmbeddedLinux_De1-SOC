@@ -6,6 +6,9 @@
 C_SRCS += \
 ../src/blinker_devmem_test.c 
 
+O_SRCS += \
+../src/blinker_devmem_test.o 
+
 OBJS += \
 ./src/blinker_devmem_test.o 
 

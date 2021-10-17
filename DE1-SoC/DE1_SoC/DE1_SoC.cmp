@@ -1,10 +1,9 @@
 	component DE1_SoC is
 		port (
-			blinker_external_connection_switches     : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- switches
-			blinker_external_connection_buttons      : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- buttons
-			blinker_external_connection_leds         : out   std_logic_vector(7 downto 0);                     -- leds
 			clk_clk                                  : in    std_logic                     := 'X';             -- clk
 			displays_ctrl_external_connection_export : out   std_logic_vector(5 downto 0);                     -- export
+			gpio_test_external_connection_switches   : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- switches
+			gpio_test_external_connection_leds       : out   std_logic_vector(7 downto 0);                     -- leds
 			hps_0_ddr_mem_a                          : out   std_logic_vector(14 downto 0);                    -- mem_a
 			hps_0_ddr_mem_ba                         : out   std_logic_vector(2 downto 0);                     -- mem_ba
 			hps_0_ddr_mem_ck                         : out   std_logic;                                        -- mem_ck

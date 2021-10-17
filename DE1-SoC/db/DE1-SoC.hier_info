@@ -82,28 +82,28 @@ HEX5_N[3] <= displays_test:displays_test.disp5[3]
 HEX5_N[4] <= displays_test:displays_test.disp5[4]
 HEX5_N[5] <= displays_test:displays_test.disp5[5]
 HEX5_N[6] <= displays_test:displays_test.disp5[6]
-KEY_N[0] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_buttons[0]
-KEY_N[1] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_buttons[1]
-KEY_N[2] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_buttons[2]
-KEY_N[3] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_buttons[3]
-LEDR[0] <= DE1_SoC:DE1_SoC_inst.blinker_external_connection_leds[0]
-LEDR[1] <= DE1_SoC:DE1_SoC_inst.blinker_external_connection_leds[1]
-LEDR[2] <= DE1_SoC:DE1_SoC_inst.blinker_external_connection_leds[2]
-LEDR[3] <= DE1_SoC:DE1_SoC_inst.blinker_external_connection_leds[3]
-LEDR[4] <= DE1_SoC:DE1_SoC_inst.blinker_external_connection_leds[4]
-LEDR[5] <= DE1_SoC:DE1_SoC_inst.blinker_external_connection_leds[5]
-LEDR[6] <= DE1_SoC:DE1_SoC_inst.blinker_external_connection_leds[6]
-LEDR[7] <= DE1_SoC:DE1_SoC_inst.blinker_external_connection_leds[7]
+KEY_N[0] => ~NO_FANOUT~
+KEY_N[1] => ~NO_FANOUT~
+KEY_N[2] => ~NO_FANOUT~
+KEY_N[3] => ~NO_FANOUT~
+LEDR[0] <= DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_leds[0]
+LEDR[1] <= DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_leds[1]
+LEDR[2] <= DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_leds[2]
+LEDR[3] <= DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_leds[3]
+LEDR[4] <= DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_leds[4]
+LEDR[5] <= DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_leds[5]
+LEDR[6] <= DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_leds[6]
+LEDR[7] <= DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_leds[7]
 LEDR[8] <= <GND>
 LEDR[9] <= <GND>
-SW[0] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_switches[0]
-SW[1] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_switches[1]
-SW[2] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_switches[2]
-SW[3] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_switches[3]
-SW[4] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_switches[4]
-SW[5] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_switches[5]
-SW[6] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_switches[6]
-SW[7] => DE1_SoC:DE1_SoC_inst.blinker_external_connection_switches[7]
+SW[0] => DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_switches[0]
+SW[1] => DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_switches[1]
+SW[2] => DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_switches[2]
+SW[3] => DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_switches[3]
+SW[4] => DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_switches[4]
+SW[5] => DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_switches[5]
+SW[6] => DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_switches[6]
+SW[7] => DE1_SoC:DE1_SoC_inst.gpio_test_external_connection_switches[7]
 SW[8] => ~NO_FANOUT~
 SW[9] => ~NO_FANOUT~
 HPS_CONV_USB_N <> DE1_SoC:DE1_SoC_inst.hps_0_io_hps_io_gpio_inst_GPIO09
@@ -236,28 +236,8 @@ HPS_USB_STP <= DE1_SoC:DE1_SoC_inst.hps_0_io_hps_io_usb1_inst_STP
 
 
 |DE1_SoC_top|DE1_SoC:DE1_SoC_inst
-blinker_external_connection_switches[0] => blinker:blinker_0.switches[0]
-blinker_external_connection_switches[1] => blinker:blinker_0.switches[1]
-blinker_external_connection_switches[2] => blinker:blinker_0.switches[2]
-blinker_external_connection_switches[3] => blinker:blinker_0.switches[3]
-blinker_external_connection_switches[4] => blinker:blinker_0.switches[4]
-blinker_external_connection_switches[5] => blinker:blinker_0.switches[5]
-blinker_external_connection_switches[6] => blinker:blinker_0.switches[6]
-blinker_external_connection_switches[7] => blinker:blinker_0.switches[7]
-blinker_external_connection_buttons[0] => blinker:blinker_0.buttons[0]
-blinker_external_connection_buttons[1] => blinker:blinker_0.buttons[1]
-blinker_external_connection_buttons[2] => blinker:blinker_0.buttons[2]
-blinker_external_connection_buttons[3] => blinker:blinker_0.buttons[3]
-blinker_external_connection_leds[0] <= blinker:blinker_0.leds[0]
-blinker_external_connection_leds[1] <= blinker:blinker_0.leds[1]
-blinker_external_connection_leds[2] <= blinker:blinker_0.leds[2]
-blinker_external_connection_leds[3] <= blinker:blinker_0.leds[3]
-blinker_external_connection_leds[4] <= blinker:blinker_0.leds[4]
-blinker_external_connection_leds[5] <= blinker:blinker_0.leds[5]
-blinker_external_connection_leds[6] <= blinker:blinker_0.leds[6]
-blinker_external_connection_leds[7] <= blinker:blinker_0.leds[7]
-clk_clk => blinker:blinker_0.clk
 clk_clk => DE1_SoC_displays_ctrl:displays_ctrl.clk
+clk_clk => gpio_test:gpio_test_0.clk
 clk_clk => DE1_SoC_hps_0:hps_0.h2f_lw_axi_clk
 clk_clk => DE1_SoC_jtag_uart_0:jtag_uart_0.clk
 clk_clk => DE1_SoC_sysid_qsys_0:sysid_qsys_0.clock
@@ -270,6 +250,22 @@ displays_ctrl_external_connection_export[2] <= DE1_SoC_displays_ctrl:displays_ct
 displays_ctrl_external_connection_export[3] <= DE1_SoC_displays_ctrl:displays_ctrl.out_port[3]
 displays_ctrl_external_connection_export[4] <= DE1_SoC_displays_ctrl:displays_ctrl.out_port[4]
 displays_ctrl_external_connection_export[5] <= DE1_SoC_displays_ctrl:displays_ctrl.out_port[5]
+gpio_test_external_connection_switches[0] => gpio_test:gpio_test_0.switches[0]
+gpio_test_external_connection_switches[1] => gpio_test:gpio_test_0.switches[1]
+gpio_test_external_connection_switches[2] => gpio_test:gpio_test_0.switches[2]
+gpio_test_external_connection_switches[3] => gpio_test:gpio_test_0.switches[3]
+gpio_test_external_connection_switches[4] => gpio_test:gpio_test_0.switches[4]
+gpio_test_external_connection_switches[5] => gpio_test:gpio_test_0.switches[5]
+gpio_test_external_connection_switches[6] => gpio_test:gpio_test_0.switches[6]
+gpio_test_external_connection_switches[7] => gpio_test:gpio_test_0.switches[7]
+gpio_test_external_connection_leds[0] <= gpio_test:gpio_test_0.leds[0]
+gpio_test_external_connection_leds[1] <= gpio_test:gpio_test_0.leds[1]
+gpio_test_external_connection_leds[2] <= gpio_test:gpio_test_0.leds[2]
+gpio_test_external_connection_leds[3] <= gpio_test:gpio_test_0.leds[3]
+gpio_test_external_connection_leds[4] <= gpio_test:gpio_test_0.leds[4]
+gpio_test_external_connection_leds[5] <= gpio_test:gpio_test_0.leds[5]
+gpio_test_external_connection_leds[6] <= gpio_test:gpio_test_0.leds[6]
+gpio_test_external_connection_leds[7] <= gpio_test:gpio_test_0.leds[7]
 hps_0_ddr_mem_a[0] <= DE1_SoC_hps_0:hps_0.mem_a[0]
 hps_0_ddr_mem_a[1] <= DE1_SoC_hps_0:hps_0.mem_a[1]
 hps_0_ddr_mem_a[2] <= DE1_SoC_hps_0:hps_0.mem_a[2]
@@ -401,141 +397,6 @@ hps_0_io_hps_io_gpio_inst_GPIO61 <> DE1_SoC_hps_0:hps_0.hps_io_gpio_inst_GPIO61
 reset_reset_n => altera_reset_controller:rst_controller.reset_in0
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|blinker:blinker_0
-clk => irq~reg0.CLK
-clk => ena_irq.CLK
-clk => position[0].CLK
-clk => position[1].CLK
-clk => position[2].CLK
-clk => position[3].CLK
-clk => count[0].CLK
-clk => count[1].CLK
-clk => count[2].CLK
-clk => count[3].CLK
-clk => count[4].CLK
-clk => count[5].CLK
-clk => count[6].CLK
-clk => count[7].CLK
-clk => count[8].CLK
-clk => count[9].CLK
-clk => count[10].CLK
-clk => count[11].CLK
-clk => count[12].CLK
-clk => count[13].CLK
-clk => count[14].CLK
-clk => count[15].CLK
-clk => count[16].CLK
-clk => count[17].CLK
-clk => count[18].CLK
-clk => count[19].CLK
-clk => count[20].CLK
-clk => count[21].CLK
-clk => count[22].CLK
-clk => count[23].CLK
-clk => running.CLK
-clk => mode.CLK
-clk => speed[0].CLK
-clk => speed[1].CLK
-clk => speed[2].CLK
-clk => speed[3].CLK
-reset => irq~reg0.ACLR
-reset => ena_irq.ACLR
-reset => position[0].ACLR
-reset => position[1].ACLR
-reset => position[2].ACLR
-reset => position[3].ACLR
-reset => count[0].ACLR
-reset => count[1].ACLR
-reset => count[2].ACLR
-reset => count[3].ACLR
-reset => count[4].ACLR
-reset => count[5].ACLR
-reset => count[6].ACLR
-reset => count[7].ACLR
-reset => count[8].ACLR
-reset => count[9].ACLR
-reset => count[10].ACLR
-reset => count[11].ACLR
-reset => count[12].ACLR
-reset => count[13].ACLR
-reset => count[14].ACLR
-reset => count[15].ACLR
-reset => count[16].ACLR
-reset => count[17].ACLR
-reset => count[18].ACLR
-reset => count[19].ACLR
-reset => count[20].ACLR
-reset => count[21].ACLR
-reset => count[22].ACLR
-reset => count[23].ACLR
-reset => running.PRESET
-reset => mode.PRESET
-reset => speed[0].ACLR
-reset => speed[1].ACLR
-reset => speed[2].ACLR
-reset => speed[3].PRESET
-switches[0] => leds.DATAB
-switches[0] => leds.DATAA
-switches[1] => leds.DATAB
-switches[1] => leds.DATAA
-switches[2] => leds.DATAB
-switches[2] => leds.DATAA
-switches[3] => leds.DATAB
-switches[3] => leds.DATAA
-switches[4] => leds.DATAB
-switches[4] => leds.DATAA
-switches[5] => leds.DATAB
-switches[5] => leds.DATAA
-switches[6] => leds.DATAB
-switches[6] => leds.DATAA
-switches[7] => leds.DATAB
-switches[7] => leds.DATAA
-buttons[0] => process_1.IN1
-buttons[0] => process_7.IN0
-buttons[1] => process_1.IN1
-buttons[1] => process_7.IN1
-buttons[2] => running.OUTPUTSELECT
-buttons[2] => process_7.IN1
-buttons[3] => mode.OUTPUTSELECT
-buttons[3] => process_7.IN1
-leds[0] <> leds[0]
-leds[1] <> leds[1]
-leds[2] <> leds[2]
-leds[3] <> leds[3]
-leds[4] <> leds[4]
-leds[5] <> leds[5]
-leds[6] <> leds[6]
-leds[7] <> leds[7]
-address => process_3.IN0
-address => readdata.IN0
-address => readdata.IN0
-address => process_1.IN0
-write => process_1.IN1
-write => process_3.IN1
-writedata[0] => speed.DATAB
-writedata[0] => mode.DATAB
-writedata[1] => speed.DATAB
-writedata[1] => running.DATAB
-writedata[2] => speed.DATAB
-writedata[2] => ena_irq.DATAIN
-writedata[3] => speed.DATAB
-writedata[4] => ~NO_FANOUT~
-writedata[5] => ~NO_FANOUT~
-writedata[6] => ~NO_FANOUT~
-writedata[7] => ~NO_FANOUT~
-read => readdata.IN1
-read => readdata.IN1
-readdata[0] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
-readdata[1] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
-readdata[2] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
-readdata[3] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
-readdata[4] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
-readdata[5] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
-readdata[6] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
-readdata[7] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
-irq <= irq~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
 |DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_displays_ctrl:displays_ctrl
 address[0] => Equal0.IN31
 address[1] => Equal0.IN30
@@ -623,6 +484,61 @@ readdata[28] <= <GND>
 readdata[29] <= <GND>
 readdata[30] <= <GND>
 readdata[31] <= <GND>
+
+
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|gpio_test:gpio_test_0
+clk => leds_out[0].CLK
+clk => leds_out[1].CLK
+clk => leds_out[2].CLK
+clk => leds_out[3].CLK
+clk => leds_out[4].CLK
+clk => leds_out[5].CLK
+clk => leds_out[6].CLK
+clk => leds_out[7].CLK
+reset => leds_out[0].ACLR
+reset => leds_out[1].ACLR
+reset => leds_out[2].ACLR
+reset => leds_out[3].ACLR
+reset => leds_out[4].ACLR
+reset => leds_out[5].ACLR
+reset => leds_out[6].ACLR
+reset => leds_out[7].ACLR
+switches[0] => readdata.DATAB
+switches[1] => readdata.DATAB
+switches[2] => readdata.DATAB
+switches[3] => readdata.DATAB
+switches[4] => readdata.DATAB
+switches[5] => readdata.DATAB
+switches[6] => readdata.DATAB
+switches[7] => readdata.DATAB
+leds[0] <= leds_out[0].DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= leds_out[1].DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds_out[2].DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= leds_out[3].DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= leds_out[4].DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= leds_out[5].DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= leds_out[6].DB_MAX_OUTPUT_PORT_TYPE
+leds[7] <= leds_out[7].DB_MAX_OUTPUT_PORT_TYPE
+address => output.IN0
+address => readdata.IN0
+write => output.IN1
+writedata[0] => leds_out[0].DATAIN
+writedata[1] => leds_out[1].DATAIN
+writedata[2] => leds_out[2].DATAIN
+writedata[3] => leds_out[3].DATAIN
+writedata[4] => leds_out[4].DATAIN
+writedata[5] => leds_out[5].DATAIN
+writedata[6] => leds_out[6].DATAIN
+writedata[7] => leds_out[7].DATAIN
+read => readdata.IN1
+readdata[0] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
+readdata[1] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
+readdata[2] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
+readdata[3] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
+readdata[4] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
+readdata[5] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
+readdata[6] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
+readdata[7] <= readdata.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_hps_0:hps_0
@@ -11211,43 +11127,45 @@ adapted_ir_out[0] => ir_out[0].DATAIN
 address => readdata[30].DATAIN
 address => readdata[29].DATAIN
 address => readdata[24].DATAIN
+address => readdata[22].DATAIN
 address => readdata[21].DATAIN
-address => readdata[20].DATAIN
 address => readdata[19].DATAIN
-address => readdata[17].DATAIN
+address => readdata[18].DATAIN
 address => readdata[14].DATAIN
 address => readdata[13].DATAIN
-address => readdata[12].DATAIN
-address => readdata[10].DATAIN
+address => readdata[11].DATAIN
+address => readdata[8].DATAIN
+address => readdata[7].DATAIN
 address => readdata[6].DATAIN
-address => readdata[5].DATAIN
-address => readdata[3].DATAIN
+address => readdata[4].DATAIN
 address => readdata[2].DATAIN
+address => readdata[1].DATAIN
+address => readdata[0].DATAIN
 clock => ~NO_FANOUT~
 reset_n => ~NO_FANOUT~
-readdata[0] <= <GND>
-readdata[1] <= <GND>
+readdata[0] <= address.DB_MAX_OUTPUT_PORT_TYPE
+readdata[1] <= address.DB_MAX_OUTPUT_PORT_TYPE
 readdata[2] <= address.DB_MAX_OUTPUT_PORT_TYPE
-readdata[3] <= address.DB_MAX_OUTPUT_PORT_TYPE
-readdata[4] <= <GND>
-readdata[5] <= address.DB_MAX_OUTPUT_PORT_TYPE
+readdata[3] <= <GND>
+readdata[4] <= address.DB_MAX_OUTPUT_PORT_TYPE
+readdata[5] <= <GND>
 readdata[6] <= address.DB_MAX_OUTPUT_PORT_TYPE
-readdata[7] <= <GND>
-readdata[8] <= <GND>
+readdata[7] <= address.DB_MAX_OUTPUT_PORT_TYPE
+readdata[8] <= address.DB_MAX_OUTPUT_PORT_TYPE
 readdata[9] <= <GND>
-readdata[10] <= address.DB_MAX_OUTPUT_PORT_TYPE
-readdata[11] <= <GND>
-readdata[12] <= address.DB_MAX_OUTPUT_PORT_TYPE
+readdata[10] <= <GND>
+readdata[11] <= address.DB_MAX_OUTPUT_PORT_TYPE
+readdata[12] <= <GND>
 readdata[13] <= address.DB_MAX_OUTPUT_PORT_TYPE
 readdata[14] <= address.DB_MAX_OUTPUT_PORT_TYPE
 readdata[15] <= <GND>
 readdata[16] <= <GND>
-readdata[17] <= address.DB_MAX_OUTPUT_PORT_TYPE
-readdata[18] <= <GND>
+readdata[17] <= <GND>
+readdata[18] <= address.DB_MAX_OUTPUT_PORT_TYPE
 readdata[19] <= address.DB_MAX_OUTPUT_PORT_TYPE
-readdata[20] <= address.DB_MAX_OUTPUT_PORT_TYPE
+readdata[20] <= <GND>
 readdata[21] <= address.DB_MAX_OUTPUT_PORT_TYPE
-readdata[22] <= <GND>
+readdata[22] <= address.DB_MAX_OUTPUT_PORT_TYPE
 readdata[23] <= <GND>
 readdata[24] <= address.DB_MAX_OUTPUT_PORT_TYPE
 readdata[25] <= <GND>
@@ -11485,25 +11403,6 @@ hps_0_h2f_lw_axi_master_rready => hps_0_h2f_lw_axi_master_rready.IN1
 clk_0_clk_clk => clk_0_clk_clk.IN47
 hps_0_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset => hps_0_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset.IN8
 jtag_uart_0_reset_reset_bridge_in_reset_reset => jtag_uart_0_reset_reset_bridge_in_reset_reset.IN38
-blinker_0_avalon_slave_0_address[0] <= altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator.av_address
-blinker_0_avalon_slave_0_write <= altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator.av_write
-blinker_0_avalon_slave_0_read <= altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator.av_read
-blinker_0_avalon_slave_0_readdata[0] => blinker_0_avalon_slave_0_readdata[0].IN1
-blinker_0_avalon_slave_0_readdata[1] => blinker_0_avalon_slave_0_readdata[1].IN1
-blinker_0_avalon_slave_0_readdata[2] => blinker_0_avalon_slave_0_readdata[2].IN1
-blinker_0_avalon_slave_0_readdata[3] => blinker_0_avalon_slave_0_readdata[3].IN1
-blinker_0_avalon_slave_0_readdata[4] => blinker_0_avalon_slave_0_readdata[4].IN1
-blinker_0_avalon_slave_0_readdata[5] => blinker_0_avalon_slave_0_readdata[5].IN1
-blinker_0_avalon_slave_0_readdata[6] => blinker_0_avalon_slave_0_readdata[6].IN1
-blinker_0_avalon_slave_0_readdata[7] => blinker_0_avalon_slave_0_readdata[7].IN1
-blinker_0_avalon_slave_0_writedata[0] <= altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator.av_writedata
-blinker_0_avalon_slave_0_writedata[1] <= altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator.av_writedata
-blinker_0_avalon_slave_0_writedata[2] <= altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator.av_writedata
-blinker_0_avalon_slave_0_writedata[3] <= altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator.av_writedata
-blinker_0_avalon_slave_0_writedata[4] <= altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator.av_writedata
-blinker_0_avalon_slave_0_writedata[5] <= altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator.av_writedata
-blinker_0_avalon_slave_0_writedata[6] <= altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator.av_writedata
-blinker_0_avalon_slave_0_writedata[7] <= altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator.av_writedata
 displays_ctrl_s1_address[0] <= altera_merlin_slave_translator:displays_ctrl_s1_translator.av_address
 displays_ctrl_s1_address[1] <= altera_merlin_slave_translator:displays_ctrl_s1_translator.av_address
 displays_ctrl_s1_write <= altera_merlin_slave_translator:displays_ctrl_s1_translator.av_write
@@ -11572,6 +11471,25 @@ displays_ctrl_s1_writedata[29] <= altera_merlin_slave_translator:displays_ctrl_s
 displays_ctrl_s1_writedata[30] <= altera_merlin_slave_translator:displays_ctrl_s1_translator.av_writedata
 displays_ctrl_s1_writedata[31] <= altera_merlin_slave_translator:displays_ctrl_s1_translator.av_writedata
 displays_ctrl_s1_chipselect <= altera_merlin_slave_translator:displays_ctrl_s1_translator.av_chipselect
+gpio_test_0_avalon_slave_0_address[0] <= altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator.av_address
+gpio_test_0_avalon_slave_0_write <= altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator.av_write
+gpio_test_0_avalon_slave_0_read <= altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator.av_read
+gpio_test_0_avalon_slave_0_readdata[0] => gpio_test_0_avalon_slave_0_readdata[0].IN1
+gpio_test_0_avalon_slave_0_readdata[1] => gpio_test_0_avalon_slave_0_readdata[1].IN1
+gpio_test_0_avalon_slave_0_readdata[2] => gpio_test_0_avalon_slave_0_readdata[2].IN1
+gpio_test_0_avalon_slave_0_readdata[3] => gpio_test_0_avalon_slave_0_readdata[3].IN1
+gpio_test_0_avalon_slave_0_readdata[4] => gpio_test_0_avalon_slave_0_readdata[4].IN1
+gpio_test_0_avalon_slave_0_readdata[5] => gpio_test_0_avalon_slave_0_readdata[5].IN1
+gpio_test_0_avalon_slave_0_readdata[6] => gpio_test_0_avalon_slave_0_readdata[6].IN1
+gpio_test_0_avalon_slave_0_readdata[7] => gpio_test_0_avalon_slave_0_readdata[7].IN1
+gpio_test_0_avalon_slave_0_writedata[0] <= altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator.av_writedata
+gpio_test_0_avalon_slave_0_writedata[1] <= altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator.av_writedata
+gpio_test_0_avalon_slave_0_writedata[2] <= altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator.av_writedata
+gpio_test_0_avalon_slave_0_writedata[3] <= altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator.av_writedata
+gpio_test_0_avalon_slave_0_writedata[4] <= altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator.av_writedata
+gpio_test_0_avalon_slave_0_writedata[5] <= altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator.av_writedata
+gpio_test_0_avalon_slave_0_writedata[6] <= altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator.av_writedata
+gpio_test_0_avalon_slave_0_writedata[7] <= altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator.av_writedata
 jtag_uart_0_avalon_jtag_slave_address[0] <= altera_merlin_slave_translator:jtag_uart_0_avalon_jtag_slave_translator.av_address
 jtag_uart_0_avalon_jtag_slave_write <= altera_merlin_slave_translator:jtag_uart_0_avalon_jtag_slave_translator.av_write
 jtag_uart_0_avalon_jtag_slave_read <= altera_merlin_slave_translator:jtag_uart_0_avalon_jtag_slave_translator.av_read
@@ -11955,7 +11873,7 @@ av_response[1] => ~NO_FANOUT~
 av_writeresponsevalid => uav_writeresponsevalid.DATAIN
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:blinker_0_avalon_slave_0_translator
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:gpio_test_0_avalon_slave_0_translator
 clk => in_transfer.CLK
 clk => end_beginbursttransfer.CLK
 clk => end_begintransfer.CLK
@@ -15911,7 +15829,7 @@ almost_full_data <= <GND>
 almost_empty_data <= <GND>
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:blinker_0_avalon_slave_0_agent
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:gpio_test_0_avalon_slave_0_agent
 clk => clk.IN1
 reset => reset.IN1
 m0_address[0] <= cp_data[9].DB_MAX_OUTPUT_PORT_TYPE
@@ -16408,7 +16326,7 @@ rp_startofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_startof
 rp_endofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_endofpacket
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:blinker_0_avalon_slave_0_agent|altera_merlin_burst_uncompressor:uncompressor
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:gpio_test_0_avalon_slave_0_agent|altera_merlin_burst_uncompressor:uncompressor
 clk => burst_uncompress_address_offset[0].CLK
 clk => burst_uncompress_address_offset[1].CLK
 clk => burst_uncompress_address_offset[2].CLK
@@ -16706,7 +16624,7 @@ source_burstsize[1] <= sink_burstsize[1].DB_MAX_OUTPUT_PORT_TYPE
 source_burstsize[2] <= sink_burstsize[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:blinker_0_avalon_slave_0_agent_rsp_fifo
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:gpio_test_0_avalon_slave_0_agent_rsp_fifo
 clk => csr_readdata[0]~reg0.CLK
 clk => csr_readdata[1]~reg0.CLK
 clk => csr_readdata[2]~reg0.CLK
@@ -17429,7 +17347,7 @@ almost_full_data <= <GND>
 almost_empty_data <= <GND>
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:blinker_0_avalon_slave_0_agent_rdata_fifo
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:gpio_test_0_avalon_slave_0_agent_rdata_fifo
 clk => csr_readdata[0]~reg0.CLK
 clk => csr_readdata[1]~reg0.CLK
 clk => csr_readdata[2]~reg0.CLK
@@ -22638,7 +22556,7 @@ src_ready => sink_ready.DATAIN
 
 
 |DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|DE1_SoC_mm_interconnect_0_router:router|DE1_SoC_mm_interconnect_0_router_default_decode:the_default_decode
-default_destination_id[0] <= <VCC>
+default_destination_id[0] <= <GND>
 default_destination_id[1] <= <GND>
 default_wr_channel[0] <= <GND>
 default_wr_channel[1] <= <GND>
@@ -22966,7 +22884,7 @@ src_ready => sink_ready.DATAIN
 
 
 |DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|DE1_SoC_mm_interconnect_0_router:router_001|DE1_SoC_mm_interconnect_0_router_default_decode:the_default_decode
-default_destination_id[0] <= <VCC>
+default_destination_id[0] <= <GND>
 default_destination_id[1] <= <GND>
 default_wr_channel[0] <= <GND>
 default_wr_channel[1] <= <GND>
@@ -26250,7 +26168,7 @@ sum[6] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[7] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter
 clk => clk.IN1
 reset => reset.IN1
 sink0_valid => sink0_valid.IN1
@@ -26445,7 +26363,7 @@ source0_endofpacket <= altera_merlin_burst_adapter_13_1:altera_merlin_burst_adap
 source0_ready => source0_ready.IN1
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter
 clk => clk.IN1
 reset => reset.IN1
 sink0_valid => in_valid.IN1
@@ -26676,7 +26594,7 @@ source0_ready => nxt_out_eop.OUTPUTSELECT
 source0_ready => nxt_uncomp_subburst_byte_cnt.IN1
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_address_alignment:align_address_to_size
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_address_alignment:align_address_to_size
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 in_data[0] => ~NO_FANOUT~
@@ -26730,7 +26648,7 @@ out_data[20] <= in_data[23].DB_MAX_OUTPUT_PORT_TYPE
 out_ready => ~NO_FANOUT~
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_burstwrap_increment:the_burstwrap_increment
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_burstwrap_increment:the_burstwrap_increment
 mask[0] => inc.IN0
 mask[0] => inc[0].DATAIN
 mask[1] => inc.IN0
@@ -26753,7 +26671,7 @@ inc[5] <= inc.DB_MAX_OUTPUT_PORT_TYPE
 inc[6] <= inc.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 a[0] => a_reg[0].IN3
@@ -26795,7 +26713,7 @@ result[5] <= Selector1.DB_MAX_OUTPUT_PORT_TYPE
 result[6] <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:ab_sub
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:ab_sub
 a[0] => a[0].IN1
 a[1] => a[1].IN1
 a[2] => a[2].IN1
@@ -26822,7 +26740,7 @@ diff[6] <= altera_merlin_burst_adapter_adder:subtract.sum
 diff[7] <= altera_merlin_burst_adapter_adder:subtract.sum
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:ab_sub|altera_merlin_burst_adapter_adder:subtract
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:ab_sub|altera_merlin_burst_adapter_adder:subtract
 cin => sum.IN1
 cin => carry.IN0
 cin => carry.IN0
@@ -26880,7 +26798,7 @@ sum[6] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[7] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:ac_sub
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:ac_sub
 a[0] => a[0].IN1
 a[1] => a[1].IN1
 a[2] => a[2].IN1
@@ -26907,7 +26825,7 @@ diff[6] <= altera_merlin_burst_adapter_adder:subtract.sum
 diff[7] <= altera_merlin_burst_adapter_adder:subtract.sum
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:ac_sub|altera_merlin_burst_adapter_adder:subtract
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:ac_sub|altera_merlin_burst_adapter_adder:subtract
 cin => sum.IN1
 cin => carry.IN0
 cin => carry.IN0
@@ -26965,7 +26883,7 @@ sum[6] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[7] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:bc_sub
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:bc_sub
 a[0] => a[0].IN1
 a[1] => a[1].IN1
 a[2] => a[2].IN1
@@ -26992,7 +26910,7 @@ diff[6] <= altera_merlin_burst_adapter_adder:subtract.sum
 diff[7] <= altera_merlin_burst_adapter_adder:subtract.sum
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:bc_sub|altera_merlin_burst_adapter_adder:subtract
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:bc_sub|altera_merlin_burst_adapter_adder:subtract
 cin => sum.IN1
 cin => carry.IN0
 cin => carry.IN0
@@ -27050,7 +26968,7 @@ sum[6] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[7] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:da_sub
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:da_sub
 a[0] => a[0].IN1
 a[1] => a[1].IN1
 a[2] => a[2].IN1
@@ -27077,7 +26995,7 @@ diff[6] <= altera_merlin_burst_adapter_adder:subtract.sum
 diff[7] <= altera_merlin_burst_adapter_adder:subtract.sum
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:da_sub|altera_merlin_burst_adapter_adder:subtract
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:da_sub|altera_merlin_burst_adapter_adder:subtract
 cin => sum.IN1
 cin => carry.IN0
 cin => carry.IN0
@@ -27135,7 +27053,7 @@ sum[6] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[7] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:db_sub
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:db_sub
 a[0] => a[0].IN1
 a[1] => a[1].IN1
 a[2] => a[2].IN1
@@ -27162,7 +27080,7 @@ diff[6] <= altera_merlin_burst_adapter_adder:subtract.sum
 diff[7] <= altera_merlin_burst_adapter_adder:subtract.sum
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:db_sub|altera_merlin_burst_adapter_adder:subtract
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:db_sub|altera_merlin_burst_adapter_adder:subtract
 cin => sum.IN1
 cin => carry.IN0
 cin => carry.IN0
@@ -27220,7 +27138,7 @@ sum[6] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[7] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:dc_sub
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:dc_sub
 a[0] => a[0].IN1
 a[1] => a[1].IN1
 a[2] => a[2].IN1
@@ -27247,7 +27165,7 @@ diff[6] <= altera_merlin_burst_adapter_adder:subtract.sum
 diff[7] <= altera_merlin_burst_adapter_adder:subtract.sum
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:blinker_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:dc_sub|altera_merlin_burst_adapter_adder:subtract
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:gpio_test_0_avalon_slave_0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|altera_merlin_burst_adapter_min:the_min|altera_merlin_burst_adapter_subtractor:dc_sub|altera_merlin_burst_adapter_adder:subtract
 cin => sum.IN1
 cin => carry.IN0
 cin => carry.IN0
@@ -36603,7 +36521,7 @@ sum[6] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[7] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:blinker_0_avalon_slave_0_rsp_width_adapter
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:gpio_test_0_avalon_slave_0_rsp_width_adapter
 clk => clk.IN1
 reset => reset.IN1
 in_ready <= in_ready.DB_MAX_OUTPUT_PORT_TYPE
@@ -36841,7 +36759,7 @@ in_command_size_data[1] => ~NO_FANOUT~
 in_command_size_data[2] => ~NO_FANOUT~
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:blinker_0_avalon_slave_0_rsp_width_adapter|altera_merlin_burst_uncompressor:uncompressor
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:gpio_test_0_avalon_slave_0_rsp_width_adapter|altera_merlin_burst_uncompressor:uncompressor
 clk => burst_uncompress_address_offset[0].CLK
 clk => burst_uncompress_address_offset[1].CLK
 clk => burst_uncompress_address_offset[2].CLK
@@ -37139,7 +37057,7 @@ source_burstsize[1] <= sink_burstsize[1].DB_MAX_OUTPUT_PORT_TYPE
 source_burstsize[2] <= sink_burstsize[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:blinker_0_avalon_slave_0_cmd_width_adapter
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:gpio_test_0_avalon_slave_0_cmd_width_adapter
 clk => clk.IN1
 reset => reset.IN1
 in_ready <= in_ready.DB_MAX_OUTPUT_PORT_TYPE
@@ -37405,7 +37323,7 @@ in_command_size_data[1] => ~NO_FANOUT~
 in_command_size_data[2] => ~NO_FANOUT~
 
 
-|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:blinker_0_avalon_slave_0_cmd_width_adapter|altera_merlin_address_alignment:check_and_align_address_to_size
+|DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:gpio_test_0_avalon_slave_0_cmd_width_adapter|altera_merlin_address_alignment:check_and_align_address_to_size
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 in_data[0] => LessThan0.IN6
@@ -38003,10 +37921,9 @@ reset_n => ~NO_FANOUT~
 |DE1_SoC_top|DE1_SoC:DE1_SoC_inst|DE1_SoC_irq_mapper:irq_mapper
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
-receiver0_irq => sender_irq[1].DATAIN
-receiver1_irq => sender_irq[0].DATAIN
-sender_irq[0] <= receiver1_irq.DB_MAX_OUTPUT_PORT_TYPE
-sender_irq[1] <= receiver0_irq.DB_MAX_OUTPUT_PORT_TYPE
+receiver0_irq => sender_irq[0].DATAIN
+sender_irq[0] <= receiver0_irq.DB_MAX_OUTPUT_PORT_TYPE
+sender_irq[1] <= <GND>
 sender_irq[2] <= <GND>
 sender_irq[3] <= <GND>
 sender_irq[4] <= <GND>

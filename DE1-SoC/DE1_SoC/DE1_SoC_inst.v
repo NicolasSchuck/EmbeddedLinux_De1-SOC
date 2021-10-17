@@ -1,9 +1,8 @@
 	DE1_SoC u0 (
-		.blinker_external_connection_switches     (<connected-to-blinker_external_connection_switches>),     //       blinker_external_connection.switches
-		.blinker_external_connection_buttons      (<connected-to-blinker_external_connection_buttons>),      //                                  .buttons
-		.blinker_external_connection_leds         (<connected-to-blinker_external_connection_leds>),         //                                  .leds
 		.clk_clk                                  (<connected-to-clk_clk>),                                  //                               clk.clk
 		.displays_ctrl_external_connection_export (<connected-to-displays_ctrl_external_connection_export>), // displays_ctrl_external_connection.export
+		.gpio_test_external_connection_switches   (<connected-to-gpio_test_external_connection_switches>),   //     gpio_test_external_connection.switches
+		.gpio_test_external_connection_leds       (<connected-to-gpio_test_external_connection_leds>),       //                                  .leds
 		.hps_0_ddr_mem_a                          (<connected-to-hps_0_ddr_mem_a>),                          //                         hps_0_ddr.mem_a
 		.hps_0_ddr_mem_ba                         (<connected-to-hps_0_ddr_mem_ba>),                         //                                  .mem_ba
 		.hps_0_ddr_mem_ck                         (<connected-to-hps_0_ddr_mem_ck>),                         //                                  .mem_ck

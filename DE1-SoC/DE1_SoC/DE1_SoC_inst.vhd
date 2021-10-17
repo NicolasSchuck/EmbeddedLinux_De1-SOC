@@ -1,10 +1,9 @@
 	component DE1_SoC is
 		port (
-			blinker_external_connection_switches     : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- switches
-			blinker_external_connection_buttons      : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- buttons
-			blinker_external_connection_leds         : out   std_logic_vector(7 downto 0);                     -- leds
 			clk_clk                                  : in    std_logic                     := 'X';             -- clk
 			displays_ctrl_external_connection_export : out   std_logic_vector(5 downto 0);                     -- export
+			gpio_test_external_connection_switches   : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- switches
+			gpio_test_external_connection_leds       : out   std_logic_vector(7 downto 0);                     -- leds
 			hps_0_ddr_mem_a                          : out   std_logic_vector(14 downto 0);                    -- mem_a
 			hps_0_ddr_mem_ba                         : out   std_logic_vector(2 downto 0);                     -- mem_ba
 			hps_0_ddr_mem_ck                         : out   std_logic;                                        -- mem_ck
@@ -83,11 +82,10 @@
 
 	u0 : component DE1_SoC
 		port map (
-			blinker_external_connection_switches     => CONNECTED_TO_blinker_external_connection_switches,     --       blinker_external_connection.switches
-			blinker_external_connection_buttons      => CONNECTED_TO_blinker_external_connection_buttons,      --                                  .buttons
-			blinker_external_connection_leds         => CONNECTED_TO_blinker_external_connection_leds,         --                                  .leds
 			clk_clk                                  => CONNECTED_TO_clk_clk,                                  --                               clk.clk
 			displays_ctrl_external_connection_export => CONNECTED_TO_displays_ctrl_external_connection_export, -- displays_ctrl_external_connection.export
+			gpio_test_external_connection_switches   => CONNECTED_TO_gpio_test_external_connection_switches,   --     gpio_test_external_connection.switches
+			gpio_test_external_connection_leds       => CONNECTED_TO_gpio_test_external_connection_leds,       --                                  .leds
 			hps_0_ddr_mem_a                          => CONNECTED_TO_hps_0_ddr_mem_a,                          --                         hps_0_ddr.mem_a
 			hps_0_ddr_mem_ba                         => CONNECTED_TO_hps_0_ddr_mem_ba,                         --                                  .mem_ba
 			hps_0_ddr_mem_ck                         => CONNECTED_TO_hps_0_ddr_mem_ck,                         --                                  .mem_ck

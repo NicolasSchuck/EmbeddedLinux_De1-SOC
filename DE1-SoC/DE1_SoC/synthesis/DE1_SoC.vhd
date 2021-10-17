@@ -8,11 +8,10 @@ use IEEE.numeric_std.all;
 
 entity DE1_SoC is
 	port (
-		blinker_external_connection_switches     : in    std_logic_vector(7 downto 0)  := (others => '0'); --       blinker_external_connection.switches
-		blinker_external_connection_buttons      : in    std_logic_vector(3 downto 0)  := (others => '0'); --                                  .buttons
-		blinker_external_connection_leds         : out   std_logic_vector(7 downto 0);                     --                                  .leds
 		clk_clk                                  : in    std_logic                     := '0';             --                               clk.clk
 		displays_ctrl_external_connection_export : out   std_logic_vector(5 downto 0);                     -- displays_ctrl_external_connection.export
+		gpio_test_external_connection_switches   : in    std_logic_vector(7 downto 0)  := (others => '0'); --     gpio_test_external_connection.switches
+		gpio_test_external_connection_leds       : out   std_logic_vector(7 downto 0);                     --                                  .leds
 		hps_0_ddr_mem_a                          : out   std_logic_vector(14 downto 0);                    --                         hps_0_ddr.mem_a
 		hps_0_ddr_mem_ba                         : out   std_logic_vector(2 downto 0);                     --                                  .mem_ba
 		hps_0_ddr_mem_ck                         : out   std_logic;                                        --                                  .mem_ck
@@ -90,22 +89,6 @@ entity DE1_SoC is
 end entity DE1_SoC;
 
 architecture rtl of DE1_SoC is
-	component blinker is
-		port (
-			clk       : in  std_logic                    := 'X';             -- clk
-			reset     : in  std_logic                    := 'X';             -- reset
-			address   : in  std_logic                    := 'X';             -- address
-			write     : in  std_logic                    := 'X';             -- write
-			writedata : in  std_logic_vector(7 downto 0) := (others => 'X'); -- writedata
-			read      : in  std_logic                    := 'X';             -- read
-			readdata  : out std_logic_vector(7 downto 0);                    -- readdata
-			switches  : in  std_logic_vector(7 downto 0) := (others => 'X'); -- switches
-			buttons   : in  std_logic_vector(3 downto 0) := (others => 'X'); -- buttons
-			leds      : out std_logic_vector(7 downto 0);                    -- leds
-			irq       : out std_logic                                        -- irq
-		);
-	end component blinker;
-
 	component DE1_SoC_displays_ctrl is
 		port (
 			clk        : in  std_logic                     := 'X';             -- clk
@@ -118,6 +101,20 @@ architecture rtl of DE1_SoC is
 			out_port   : out std_logic_vector(5 downto 0)                      -- export
 		);
 	end component DE1_SoC_displays_ctrl;
+
+	component gpio_test is
+		port (
+			clk       : in  std_logic                    := 'X';             -- clk
+			reset     : in  std_logic                    := 'X';             -- reset
+			address   : in  std_logic                    := 'X';             -- address
+			write     : in  std_logic                    := 'X';             -- write
+			writedata : in  std_logic_vector(7 downto 0) := (others => 'X'); -- writedata
+			read      : in  std_logic                    := 'X';             -- read
+			readdata  : out std_logic_vector(7 downto 0);                    -- readdata
+			switches  : in  std_logic_vector(7 downto 0) := (others => 'X'); -- switches
+			leds      : out std_logic_vector(7 downto 0)                     -- leds
+		);
+	end component gpio_test;
 
 	component DE1_SoC_hps_0 is
 		generic (
@@ -304,16 +301,16 @@ architecture rtl of DE1_SoC is
 			clk_0_clk_clk                                                       : in  std_logic                     := 'X';             -- clk
 			hps_0_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset : in  std_logic                     := 'X';             -- reset
 			jtag_uart_0_reset_reset_bridge_in_reset_reset                       : in  std_logic                     := 'X';             -- reset
-			blinker_0_avalon_slave_0_address                                    : out std_logic_vector(0 downto 0);                     -- address
-			blinker_0_avalon_slave_0_write                                      : out std_logic;                                        -- write
-			blinker_0_avalon_slave_0_read                                       : out std_logic;                                        -- read
-			blinker_0_avalon_slave_0_readdata                                   : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- readdata
-			blinker_0_avalon_slave_0_writedata                                  : out std_logic_vector(7 downto 0);                     -- writedata
 			displays_ctrl_s1_address                                            : out std_logic_vector(1 downto 0);                     -- address
 			displays_ctrl_s1_write                                              : out std_logic;                                        -- write
 			displays_ctrl_s1_readdata                                           : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			displays_ctrl_s1_writedata                                          : out std_logic_vector(31 downto 0);                    -- writedata
 			displays_ctrl_s1_chipselect                                         : out std_logic;                                        -- chipselect
+			gpio_test_0_avalon_slave_0_address                                  : out std_logic_vector(0 downto 0);                     -- address
+			gpio_test_0_avalon_slave_0_write                                    : out std_logic;                                        -- write
+			gpio_test_0_avalon_slave_0_read                                     : out std_logic;                                        -- read
+			gpio_test_0_avalon_slave_0_readdata                                 : in  std_logic_vector(7 downto 0)  := (others => 'X'); -- readdata
+			gpio_test_0_avalon_slave_0_writedata                                : out std_logic_vector(7 downto 0);                     -- writedata
 			jtag_uart_0_avalon_jtag_slave_address                               : out std_logic_vector(0 downto 0);                     -- address
 			jtag_uart_0_avalon_jtag_slave_write                                 : out std_logic;                                        -- write
 			jtag_uart_0_avalon_jtag_slave_read                                  : out std_logic;                                        -- read
@@ -331,7 +328,6 @@ architecture rtl of DE1_SoC is
 			clk           : in  std_logic                     := 'X'; -- clk
 			reset         : in  std_logic                     := 'X'; -- reset
 			receiver0_irq : in  std_logic                     := 'X'; -- irq
-			receiver1_irq : in  std_logic                     := 'X'; -- irq
 			sender_irq    : out std_logic_vector(31 downto 0)         -- irq
 		);
 	end component DE1_SoC_irq_mapper;
@@ -454,11 +450,11 @@ architecture rtl of DE1_SoC is
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read            : std_logic;                     -- mm_interconnect_0:jtag_uart_0_avalon_jtag_slave_read -> mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read:in
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write           : std_logic;                     -- mm_interconnect_0:jtag_uart_0_avalon_jtag_slave_write -> mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write:in
 	signal mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_writedata       : std_logic_vector(31 downto 0); -- mm_interconnect_0:jtag_uart_0_avalon_jtag_slave_writedata -> jtag_uart_0:av_writedata
-	signal mm_interconnect_0_blinker_0_avalon_slave_0_readdata             : std_logic_vector(7 downto 0);  -- blinker_0:readdata -> mm_interconnect_0:blinker_0_avalon_slave_0_readdata
-	signal mm_interconnect_0_blinker_0_avalon_slave_0_address              : std_logic_vector(0 downto 0);  -- mm_interconnect_0:blinker_0_avalon_slave_0_address -> blinker_0:address
-	signal mm_interconnect_0_blinker_0_avalon_slave_0_read                 : std_logic;                     -- mm_interconnect_0:blinker_0_avalon_slave_0_read -> blinker_0:read
-	signal mm_interconnect_0_blinker_0_avalon_slave_0_write                : std_logic;                     -- mm_interconnect_0:blinker_0_avalon_slave_0_write -> blinker_0:write
-	signal mm_interconnect_0_blinker_0_avalon_slave_0_writedata            : std_logic_vector(7 downto 0);  -- mm_interconnect_0:blinker_0_avalon_slave_0_writedata -> blinker_0:writedata
+	signal mm_interconnect_0_gpio_test_0_avalon_slave_0_readdata           : std_logic_vector(7 downto 0);  -- gpio_test_0:readdata -> mm_interconnect_0:gpio_test_0_avalon_slave_0_readdata
+	signal mm_interconnect_0_gpio_test_0_avalon_slave_0_address            : std_logic_vector(0 downto 0);  -- mm_interconnect_0:gpio_test_0_avalon_slave_0_address -> gpio_test_0:address
+	signal mm_interconnect_0_gpio_test_0_avalon_slave_0_read               : std_logic;                     -- mm_interconnect_0:gpio_test_0_avalon_slave_0_read -> gpio_test_0:read
+	signal mm_interconnect_0_gpio_test_0_avalon_slave_0_write              : std_logic;                     -- mm_interconnect_0:gpio_test_0_avalon_slave_0_write -> gpio_test_0:write
+	signal mm_interconnect_0_gpio_test_0_avalon_slave_0_writedata          : std_logic_vector(7 downto 0);  -- mm_interconnect_0:gpio_test_0_avalon_slave_0_writedata -> gpio_test_0:writedata
 	signal mm_interconnect_0_sysid_qsys_0_control_slave_readdata           : std_logic_vector(31 downto 0); -- sysid_qsys_0:readdata -> mm_interconnect_0:sysid_qsys_0_control_slave_readdata
 	signal mm_interconnect_0_sysid_qsys_0_control_slave_address            : std_logic_vector(0 downto 0);  -- mm_interconnect_0:sysid_qsys_0_control_slave_address -> sysid_qsys_0:address
 	signal mm_interconnect_0_displays_ctrl_s1_chipselect                   : std_logic;                     -- mm_interconnect_0:displays_ctrl_s1_chipselect -> displays_ctrl:chipselect
@@ -466,11 +462,10 @@ architecture rtl of DE1_SoC is
 	signal mm_interconnect_0_displays_ctrl_s1_address                      : std_logic_vector(1 downto 0);  -- mm_interconnect_0:displays_ctrl_s1_address -> displays_ctrl:address
 	signal mm_interconnect_0_displays_ctrl_s1_write                        : std_logic;                     -- mm_interconnect_0:displays_ctrl_s1_write -> mm_interconnect_0_displays_ctrl_s1_write:in
 	signal mm_interconnect_0_displays_ctrl_s1_writedata                    : std_logic_vector(31 downto 0); -- mm_interconnect_0:displays_ctrl_s1_writedata -> displays_ctrl:writedata
-	signal irq_mapper_receiver0_irq                                        : std_logic;                     -- blinker_0:irq -> irq_mapper:receiver0_irq
-	signal irq_mapper_receiver1_irq                                        : std_logic;                     -- jtag_uart_0:av_irq -> irq_mapper:receiver1_irq
+	signal irq_mapper_receiver0_irq                                        : std_logic;                     -- jtag_uart_0:av_irq -> irq_mapper:receiver0_irq
 	signal hps_0_f2h_irq0_irq                                              : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> hps_0:f2h_irq_p0
 	signal hps_0_f2h_irq1_irq                                              : std_logic_vector(31 downto 0); -- irq_mapper_001:sender_irq -> hps_0:f2h_irq_p1
-	signal rst_controller_reset_out_reset                                  : std_logic;                     -- rst_controller:reset_out -> [blinker_0:reset, mm_interconnect_0:jtag_uart_0_reset_reset_bridge_in_reset_reset, rst_controller_reset_out_reset:in]
+	signal rst_controller_reset_out_reset                                  : std_logic;                     -- rst_controller:reset_out -> [gpio_test_0:reset, mm_interconnect_0:jtag_uart_0_reset_reset_bridge_in_reset_reset, rst_controller_reset_out_reset:in]
 	signal rst_controller_001_reset_out_reset                              : std_logic;                     -- rst_controller_001:reset_out -> mm_interconnect_0:hps_0_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset
 	signal hps_0_h2f_reset_reset_n_ports_inv                               : std_logic;                     -- hps_0_h2f_reset_reset_n:inv -> rst_controller_001:reset_in0
 	signal reset_reset_n_ports_inv                                         : std_logic;                     -- reset_reset_n:inv -> rst_controller:reset_in0
@@ -480,21 +475,6 @@ architecture rtl of DE1_SoC is
 	signal rst_controller_reset_out_reset_ports_inv                        : std_logic;                     -- rst_controller_reset_out_reset:inv -> [displays_ctrl:reset_n, jtag_uart_0:rst_n, sysid_qsys_0:reset_n]
 
 begin
-
-	blinker_0 : component blinker
-		port map (
-			clk       => clk_clk,                                               --            clock.clk
-			reset     => rst_controller_reset_out_reset,                        --            reset.reset
-			address   => mm_interconnect_0_blinker_0_avalon_slave_0_address(0), --   avalon_slave_0.address
-			write     => mm_interconnect_0_blinker_0_avalon_slave_0_write,      --                 .write
-			writedata => mm_interconnect_0_blinker_0_avalon_slave_0_writedata,  --                 .writedata
-			read      => mm_interconnect_0_blinker_0_avalon_slave_0_read,       --                 .read
-			readdata  => mm_interconnect_0_blinker_0_avalon_slave_0_readdata,   --                 .readdata
-			switches  => blinker_external_connection_switches,                  --      conduit_end.switches
-			buttons   => blinker_external_connection_buttons,                   --                 .buttons
-			leds      => blinker_external_connection_leds,                      --                 .leds
-			irq       => irq_mapper_receiver0_irq                               -- interrupt_sender.irq
-		);
 
 	displays_ctrl : component DE1_SoC_displays_ctrl
 		port map (
@@ -506,6 +486,19 @@ begin
 			chipselect => mm_interconnect_0_displays_ctrl_s1_chipselect,      --                    .chipselect
 			readdata   => mm_interconnect_0_displays_ctrl_s1_readdata,        --                    .readdata
 			out_port   => displays_ctrl_external_connection_export            -- external_connection.export
+		);
+
+	gpio_test_0 : component gpio_test
+		port map (
+			clk       => clk_clk,                                                 --          clock.clk
+			reset     => rst_controller_reset_out_reset,                          --          reset.reset
+			address   => mm_interconnect_0_gpio_test_0_avalon_slave_0_address(0), -- avalon_slave_0.address
+			write     => mm_interconnect_0_gpio_test_0_avalon_slave_0_write,      --               .write
+			writedata => mm_interconnect_0_gpio_test_0_avalon_slave_0_writedata,  --               .writedata
+			read      => mm_interconnect_0_gpio_test_0_avalon_slave_0_read,       --               .read
+			readdata  => mm_interconnect_0_gpio_test_0_avalon_slave_0_readdata,   --               .readdata
+			switches  => gpio_test_external_connection_switches,                  --    conduit_end.switches
+			leds      => gpio_test_external_connection_leds                       --               .leds
 		);
 
 	hps_0 : component DE1_SoC_hps_0
@@ -638,7 +631,7 @@ begin
 			av_write_n     => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write_ports_inv, --                  .write_n
 			av_writedata   => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_writedata,       --                  .writedata
 			av_waitrequest => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_waitrequest,     --                  .waitrequest
-			av_irq         => irq_mapper_receiver1_irq                                         --               irq.irq
+			av_irq         => irq_mapper_receiver0_irq                                         --               irq.irq
 		);
 
 	sysid_qsys_0 : component DE1_SoC_sysid_qsys_0
@@ -690,16 +683,16 @@ begin
 			clk_0_clk_clk                                                       => clk_clk,                                                     --                                                     clk_0_clk.clk
 			hps_0_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset => rst_controller_001_reset_out_reset,                          -- hps_0_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset.reset
 			jtag_uart_0_reset_reset_bridge_in_reset_reset                       => rst_controller_reset_out_reset,                              --                       jtag_uart_0_reset_reset_bridge_in_reset.reset
-			blinker_0_avalon_slave_0_address                                    => mm_interconnect_0_blinker_0_avalon_slave_0_address,          --                                      blinker_0_avalon_slave_0.address
-			blinker_0_avalon_slave_0_write                                      => mm_interconnect_0_blinker_0_avalon_slave_0_write,            --                                                              .write
-			blinker_0_avalon_slave_0_read                                       => mm_interconnect_0_blinker_0_avalon_slave_0_read,             --                                                              .read
-			blinker_0_avalon_slave_0_readdata                                   => mm_interconnect_0_blinker_0_avalon_slave_0_readdata,         --                                                              .readdata
-			blinker_0_avalon_slave_0_writedata                                  => mm_interconnect_0_blinker_0_avalon_slave_0_writedata,        --                                                              .writedata
 			displays_ctrl_s1_address                                            => mm_interconnect_0_displays_ctrl_s1_address,                  --                                              displays_ctrl_s1.address
 			displays_ctrl_s1_write                                              => mm_interconnect_0_displays_ctrl_s1_write,                    --                                                              .write
 			displays_ctrl_s1_readdata                                           => mm_interconnect_0_displays_ctrl_s1_readdata,                 --                                                              .readdata
 			displays_ctrl_s1_writedata                                          => mm_interconnect_0_displays_ctrl_s1_writedata,                --                                                              .writedata
 			displays_ctrl_s1_chipselect                                         => mm_interconnect_0_displays_ctrl_s1_chipselect,               --                                                              .chipselect
+			gpio_test_0_avalon_slave_0_address                                  => mm_interconnect_0_gpio_test_0_avalon_slave_0_address,        --                                    gpio_test_0_avalon_slave_0.address
+			gpio_test_0_avalon_slave_0_write                                    => mm_interconnect_0_gpio_test_0_avalon_slave_0_write,          --                                                              .write
+			gpio_test_0_avalon_slave_0_read                                     => mm_interconnect_0_gpio_test_0_avalon_slave_0_read,           --                                                              .read
+			gpio_test_0_avalon_slave_0_readdata                                 => mm_interconnect_0_gpio_test_0_avalon_slave_0_readdata,       --                                                              .readdata
+			gpio_test_0_avalon_slave_0_writedata                                => mm_interconnect_0_gpio_test_0_avalon_slave_0_writedata,      --                                                              .writedata
 			jtag_uart_0_avalon_jtag_slave_address                               => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_address,     --                                 jtag_uart_0_avalon_jtag_slave.address
 			jtag_uart_0_avalon_jtag_slave_write                                 => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write,       --                                                              .write
 			jtag_uart_0_avalon_jtag_slave_read                                  => mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read,        --                                                              .read
@@ -716,7 +709,6 @@ begin
 			clk           => open,                     --       clk.clk
 			reset         => open,                     -- clk_reset.reset
 			receiver0_irq => irq_mapper_receiver0_irq, -- receiver0.irq
-			receiver1_irq => irq_mapper_receiver1_irq, -- receiver1.irq
 			sender_irq    => hps_0_f2h_irq0_irq        --    sender.irq
 		);
 

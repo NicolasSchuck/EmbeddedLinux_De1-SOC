@@ -47,7 +47,7 @@ module DE1_SoC_mm_interconnect_0_router_default_decode
      parameter DEFAULT_CHANNEL = 3,
                DEFAULT_WR_CHANNEL = -1,
                DEFAULT_RD_CHANNEL = -1,
-               DEFAULT_DESTID = 1 
+               DEFAULT_DESTID = 0 
    )
   (output [89 - 88 : 0] default_destination_id,
    output [4-1 : 0] default_wr_channel,
@@ -211,13 +211,13 @@ module DE1_SoC_mm_interconnect_0_router
     // ( 0x30000 .. 0x30010 )
     if ( {address[RG:PAD2],{PAD2{1'b0}}} == 19'h30000   ) begin
             src_channel = 4'b1000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
     end
 
     // ( 0x40000 .. 0x40002 )
     if ( {address[RG:PAD3],{PAD3{1'b0}}} == 19'h40000   ) begin
             src_channel = 4'b0010;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
     end
 
 end
